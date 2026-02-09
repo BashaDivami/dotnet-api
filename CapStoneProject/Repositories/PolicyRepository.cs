@@ -46,7 +46,15 @@ namespace CapStoneProject.Repositories
 
         public async Task<Policy> UpdatePolicy(Policy policy)
         {
-            dbContext.Policies.Update(policy);
+            // Check if entity is already being tracked
+            var trackedEntity = dbContext.ChangeTracker.Entries<Policy>()
+                .FirstOrDefault(e => e.Entity.Id == policy.Id);
+            if (trackedEntity == null)
+            {
+                // Entity not tracked, attach and update
+                dbContext.Policies.Update(policy);
+            }
+            // If already tracked, changes are already being tracked by EF Core
             await dbContext.SaveChangesAsync();
             return policy;
         }
