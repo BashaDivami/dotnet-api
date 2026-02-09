@@ -1,7 +1,9 @@
+using CapStoneProject.DTOs;
 using CapStoneProject.Entities;
+
 namespace CapStoneProject.Services
 {
-       public interface IEnrollmentService
+    public interface IEnrollmentService
     {
         Task<EnrollmentResponseDto> EnrollPolicy(int userId, int policyId);
         Task<IEnumerable<EnrollmentResponseDto>> GetMyEnrollments(int userId);
