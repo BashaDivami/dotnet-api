@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using CapStoneProject.Attributes;
 
 namespace CapStoneProject.DTOs
 {
@@ -12,6 +13,7 @@ namespace CapStoneProject.DTOs
 
         [Required]
         [EmailAddress]
+        [AllowedEmailDomains]
         [JsonPropertyName("email")]
         public string Email { get; set; } = null!;
 
@@ -25,6 +27,7 @@ namespace CapStoneProject.DTOs
     {
         [Required]
         [EmailAddress]
+        [AllowedEmailDomains]
         [JsonPropertyName("email")]
         public string Email { get; set; } = null!;
 
