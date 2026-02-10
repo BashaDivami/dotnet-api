@@ -11,5 +11,6 @@ namespace CapStoneProject.Services
         Task<IEnumerable<Policy>> GetPoliciesByStatus(bool isActive);
         Task<Policy> CreatePolicy(CreatePolicyDto policyDto);
         Task<Policy> UpdatePolicy(Policy policy);
+        Task<bool> DeletePolicy(int id);
     }
 }

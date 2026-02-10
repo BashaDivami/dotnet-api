@@ -54,5 +54,10 @@ namespace CapStoneProject.Services
         {
             return await policyRepository.UpdatePolicy(policy);
         }
+
+        public async Task<bool> DeletePolicy(int id)
+        {
+            return await policyRepository.DeletePolicy(id);
+        }
     }
 }

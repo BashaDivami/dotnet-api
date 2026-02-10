@@ -10,5 +10,6 @@ namespace CapStoneProject.Repositories
         Task<IEnumerable<Policy>> GetPoliciesByStatus(bool isActive);
         Task<Policy> CreatePolicy(Policy policy);
         Task<Policy> UpdatePolicy(Policy policy);
+        Task<bool> DeletePolicy(int id);
     }
 }

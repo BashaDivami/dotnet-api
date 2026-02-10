@@ -41,6 +41,12 @@ namespace CapStoneProject.Controllers
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
             var enrollments = await _enrollmentService.GetMyEnrollments(userId);
+            
+            if (!enrollments.Any())
+            {
+                return Ok(new { message = "No enrollments found" });
+            }
+            
             return Ok(enrollments);
         }
 
@@ -50,6 +56,12 @@ namespace CapStoneProject.Controllers
         public async Task<IActionResult> GetAllEnrollments([FromQuery] string? status = null)
         {
             var enrollments = await _enrollmentService.GetAllEnrollments(status);
+            
+            if (!enrollments.Any())
+            {
+                return Ok(new { message = "No enrollments found" });
+            }
+            
             return Ok(enrollments);
         }
 

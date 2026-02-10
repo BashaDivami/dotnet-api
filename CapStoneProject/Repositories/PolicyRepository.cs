@@ -58,5 +58,16 @@ namespace CapStoneProject.Repositories
             await dbContext.SaveChangesAsync();
             return policy;
         }
+
+        public async Task<bool> DeletePolicy(int id)
+        {
+            var policy = await dbContext.Policies.FirstOrDefaultAsync(p => p.Id == id);
+            if (policy == null)
+                return false;
+
+            dbContext.Policies.Remove(policy);
+            await dbContext.SaveChangesAsync();
+            return true;
+        }
     }
 }

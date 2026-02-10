@@ -66,6 +66,16 @@ namespace CapStoneProject.Controllers
 
             return Ok(policy);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePolicy(int id)
+        {
+            var deleted = await _policyService.DeletePolicy(id);
+            if (!deleted)
+                return NotFound(new { message = "Policy not found" });
+
+            return Ok(new { message = "Policy deleted successfully" });
+        }
     }
 
     public class PolicyStatusDto
