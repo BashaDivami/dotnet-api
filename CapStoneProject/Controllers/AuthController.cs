@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using CapStoneProject.DTOs;
 using CapStoneProject.Services;
+using CapStoneProject.Filters;
 
 namespace CapStoneProject.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(GlobalResponseFilter))]
+    [ServiceFilter(typeof(GlobalActionFilter))]
     [Route("api/auth")]
     public class AuthController : ControllerBase
     {
