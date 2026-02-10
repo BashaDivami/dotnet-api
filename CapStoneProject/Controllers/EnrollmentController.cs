@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using CapStoneProject.DTOs;
 using CapStoneProject.Services;
 using System.Security.Claims;
-
+using CapStoneProject.Filters;
 namespace CapStoneProject.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(GlobalResponseFilter))]
+    [ServiceFilter(typeof(GlobalActionFilter))]
     [Route("api")]
     [Authorize]
     public class EnrollmentController : ControllerBase

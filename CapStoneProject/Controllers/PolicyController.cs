@@ -31,11 +31,10 @@ namespace CapStoneProject.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPolicy(int id)
         {
-            var greet = $"Hi, How are you doing with id {id}?";
-            return Ok(greet);
-            // var policy = await policyService.GetPolicyById(id);
-            // if (policy == null)
-            //     return NotFound();       
+            var policy = await policyService.GetPolicyById(id);
+            if (policy == null)
+                return NotFound(new { message = "Policy not found" });
+            return Ok(policy);
         }
 
         [HttpGet("search")]

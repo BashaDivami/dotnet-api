@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using CapStoneProject.DTOs;
 using CapStoneProject.Services;
+using CapStoneProject.Filters;
 
 namespace CapStoneProject.Controllers
 {
     [ApiController]
+    [ServiceFilter(typeof(GlobalResponseFilter))]
+    [ServiceFilter(typeof(GlobalActionFilter))]
     [Route("api/admin/policies")]
     [Authorize(Roles = "Admin")]
     public class AdminPolicyController : ControllerBase

@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using CapStoneProject.Entities;
 using CapStoneProject.Services;
+using CapStoneProject.Filters;
 namespace CapStoneProject.Controllers
 {    
     [ApiController]
+    [ServiceFilter(typeof(GlobalResponseFilter))]
+    [ServiceFilter(typeof(GlobalActionFilter))]
     [Route("api/users")]
     public class UserController : ControllerBase
     {

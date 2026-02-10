@@ -4,7 +4,7 @@ namespace CapStoneProject.Attributes
 {
     public class AllowedEmailDomainsAttribute : ValidationAttribute
     {
-        private readonly string[] _allowedDomains = { "@gmail.com", "@divami.com" };
+        private readonly string[] _allowedDomains = { "@gmail.com", "@divami.com", "@email.com"};
 
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
